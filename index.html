@@ -251,9 +251,10 @@
     font-family: 'Space Mono', monospace; width: fit-content; margin-top: 8px;
   }
   .timeline-role { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
-  .timeline-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .timeline-bullets li { font-size: 14px; color: var(--muted); display: flex; gap: 10px; align-items: flex-start; }
-  .timeline-bullets li::before { content: '→'; color: var(--accent); font-family: 'Space Mono', monospace; flex-shrink: 0; margin-top: 2px; }
+  .timeline-bullets { list-style: none; display: block; }
+  .timeline-bullets li { font-size: 14px; color: var(--muted); line-height: 1.75; padding-left: 1.4rem; position: relative; margin-bottom: 0.65rem; display: block; }
+  .timeline-bullets li::before { content: '→'; color: var(--accent); font-family: 'Space Mono', monospace; position: absolute; left: 0; top: 1px; }
+  .timeline-bullets li span.hl { display: inline; color: var(--accent); }
 
   /* EDUCATION */
   .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
@@ -637,9 +638,9 @@
           </div>
           <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">abdulrahman-alrehaili-saudi</div></div>
         </a>
-        <a class="contact-link" href="/cdn-cgi/l/email-protection#b2d39cd3dec0d7dad3dbdedb8a84f2d5dfd3dbde9cd1dddf">
+        <a class="contact-link" href="mailto:a.alrehaili86@gmail.com">
           <div class="contact-link-icon">@</div>
-          <div><div class="contact-link-label">Email</div><div class="contact-link-value"><span class="__cf_email__" data-cfemail="41206f202d33242920282d28797701262c20282d6f222e2c">[email&#160;protected]</span></div></div>
+          <div><div class="contact-link-label">Email</div><div class="contact-link-value">a.alrehaili86@gmail.com</div></div>
         </a>
         <a class="contact-link" href="https://github.com/D7nez" target="_blank">
           <div class="contact-link-icon">

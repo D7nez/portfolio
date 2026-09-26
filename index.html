@@ -2,29 +2,21 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Portfolio of Abdulrahman Alrehaili, a Data and AI Specialist based in Saudi Arabia.">
   <meta name="theme-color" content="#f5f1e8">
   <title>Abdulrahman Alrehaili | Data & AI Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --paper: #f5f1e8;
-      --paper-deep: #ebe4d7;
-      --ink: #17243a;
-      --ink-soft: #425069;
-      --muted: #727a86;
-      --gold: #9b7b45;
-      --gold-soft: #d8c59f;
-      --line: rgba(23, 36, 58, .16);
-      --white: #fffdf8;
-      --serif: "Libre Caslon Display", Georgia, serif;
-      --sans: "DM Sans", Arial, sans-serif;
+      --paper: #f5f1e8; --paper-deep: #ebe4d7; --ink: #17243a; --ink-soft: #425069; --muted: #727a86;
+      --gold: #9b7b45; --gold-soft: #d8c59f; --line: rgba(23, 36, 58, .16); --white: #fffdf8;
+      --serif: "Libre Caslon Display", Georgia, serif; --sans: "DM Sans", Arial, sans-serif;
       --shadow: 0 20px 55px rgba(23, 36, 58, .07);
     }
-
+    html[dir="rtl"] { --sans: "Tajawal", Arial, sans-serif; --serif: "Tajawal", Arial, sans-serif; }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
@@ -33,17 +25,19 @@
 
     .progress { position: fixed; inset: 0 auto auto 0; z-index: 200; width: 0; height: 2px; background: var(--gold); }
     .container { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
-    .rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
 
     .site-header { position: sticky; top: 0; z-index: 100; background: rgba(245, 241, 232, .9); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
-    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .brand { text-decoration: none; font-family: var(--serif); font-size: 1.4rem; letter-spacing: .02em; }
     .brand small { display: block; margin-top: -5px; color: var(--muted); font: 500 .58rem/1 var(--sans); letter-spacing: .19em; text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 18px; }
     .nav-links { display: flex; align-items: center; gap: 30px; }
     .nav-links a { position: relative; color: var(--ink-soft); text-decoration: none; font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
     .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 1px; background: var(--gold); transition: right .25s ease; }
     .nav-links a:hover::after, .nav-links a:focus-visible::after { right: 0; }
     .menu-button { display: none; border: 0; background: none; padding: 8px; color: var(--ink); font: 600 .8rem var(--sans); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+    .lang-toggle { flex-shrink: 0; border: 1px solid var(--ink); background: none; padding: 8px 16px; font: 600 .72rem var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); cursor: pointer; transition: .2s ease; }
+    .lang-toggle:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
 
     .hero { min-height: calc(100vh - 77px); display: grid; align-items: center; padding: 86px 0 76px; }
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); gap: 88px; align-items: end; }
@@ -52,12 +46,14 @@
     h1, h2, h3, p { margin-top: 0; }
     h1 { max-width: 770px; margin-bottom: 26px; font-family: var(--serif); font-size: clamp(3.6rem, 7.4vw, 7rem); font-weight: 400; line-height: .94; letter-spacing: -.045em; }
     h1 span { display: block; color: var(--gold); font-style: italic; }
+    html[dir="rtl"] h1 span { font-style: normal; }
     .hero-summary { max-width: 650px; margin-bottom: 34px; color: var(--ink-soft); font-size: 1.08rem; line-height: 1.85; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; border: 1px solid var(--ink); text-decoration: none; font-size: .78rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; transition: .2s ease; }
     .button.primary { background: var(--ink); color: var(--white); }
     .button:hover { background: var(--gold); border-color: var(--gold); color: var(--white); transform: translateY(-2px); }
     .hero-aside { padding: 32px 0 6px 34px; border-left: 1px solid var(--line); }
+    html[dir="rtl"] .hero-aside { padding: 32px 34px 6px 0; border-left: 0; border-right: 1px solid var(--line); }
     .aside-label { margin-bottom: 20px; color: var(--muted); font-size: .68rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
     .fact { padding: 17px 0; border-top: 1px solid var(--line); }
     .fact strong { display: block; margin-bottom: 3px; font-family: var(--serif); font-size: 1.55rem; font-weight: 400; }
@@ -70,8 +66,8 @@
     .section-intro { max-width: 650px; margin: 20px 0 0; color: var(--ink-soft); }
     .tinted { background: var(--paper-deep); border-block: 1px solid var(--line); }
 
-    .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-    .expertise { min-height: 265px; padding: 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255, 253, 248, .2); transition: background .25s ease; }
+    .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
+    .expertise { min-height: 265px; padding: 30px; border-inline-end: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255, 253, 248, .2); transition: background .25s ease; }
     .expertise:hover { background: var(--white); }
     .expertise-number { display: block; margin-bottom: 36px; color: var(--gold); font-family: var(--serif); font-size: 1rem; }
     .expertise h3 { margin-bottom: 12px; font-family: var(--serif); font-size: 1.65rem; font-weight: 400; }
@@ -86,6 +82,7 @@
     .project h3 { margin-bottom: 8px; font-family: var(--serif); font-size: 2rem; font-weight: 400; }
     .project p { margin: 0; color: var(--muted); font-size: .9rem; }
     .project-result { padding-left: 28px; border-left: 1px solid var(--line); }
+    html[dir="rtl"] .project-result { padding-left: 0; padding-right: 28px; border-left: 0; border-right: 1px solid var(--line); }
     .project-result strong { display: block; font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--gold); }
     .project-result span { color: var(--muted); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 
@@ -96,13 +93,17 @@
     .role-meta strong { display: block; color: var(--ink); font-size: .94rem; }
     .role h3 { margin-bottom: 18px; font-family: var(--serif); font-size: 2rem; font-weight: 400; }
     .role ul { max-width: 760px; margin: 0; padding-left: 19px; color: var(--ink-soft); }
+    html[dir="rtl"] .role ul { padding-left: 0; padding-right: 19px; }
     .role li { margin-bottom: 10px; padding-left: 8px; }
+    html[dir="rtl"] .role li { padding-left: 0; padding-right: 8px; }
     .role li::marker { color: var(--gold); }
 
     .credentials { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
     .credential { display: grid; grid-template-columns: 92px 1fr; gap: 24px; padding: 30px 24px 30px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
     .credential:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 36px; }
     .credential:nth-child(even) { padding-left: 36px; }
+    html[dir="rtl"] .credential:nth-child(odd) { border-right: 0; border-left: 1px solid var(--line); padding-right: 0; padding-left: 36px; }
+    html[dir="rtl"] .credential:nth-child(even) { padding-left: 0; padding-right: 36px; }
     .credential time { color: var(--gold); font: 400 1.1rem var(--serif); }
     .credential h3 { margin-bottom: 5px; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; }
     .credential p { margin: 0; color: var(--muted); font-size: .8rem; }
@@ -111,7 +112,8 @@
     .contact { text-align: center; }
     .contact .eyebrow { justify-content: center; }
     .contact h2 { max-width: 850px; margin: 0 auto 24px; font-family: var(--serif); font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 400; line-height: .98; letter-spacing: -.04em; }
-    .contact h2 em { color: var(--gold); font-weight: 400; }
+    .contact h2 em { color: var(--gold); font-weight: 400; font-style: italic; }
+    html[dir="rtl"] .contact h2 em { font-style: normal; }
     .contact > .container > p { max-width: 590px; margin: 0 auto 34px; color: var(--ink-soft); }
     .contact-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 26px; margin-top: 42px; }
     .contact-list a { color: var(--ink-soft); font-size: .82rem; font-weight: 600; letter-spacing: .04em; text-decoration-color: var(--gold-soft); text-underline-offset: 5px; }
@@ -122,19 +124,24 @@
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
+    html[dir="rtl"] .nav-links a, html[dir="rtl"] .eyebrow, html[dir="rtl"] .section-index,
+    html[dir="rtl"] .aside-label, html[dir="rtl"] .tag, html[dir="rtl"] .role-meta time,
+    html[dir="rtl"] .fact span, html[dir="rtl"] .project-result span, html[dir="rtl"] .footer-inner span,
+    html[dir="rtl"] .button, html[dir="rtl"] .lang-toggle, html[dir="rtl"] .brand small { letter-spacing: 0; text-transform: none; }
+
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 52px; }
-      .hero-aside { display: grid; grid-template-columns: repeat(2, 1fr); padding: 0; border-left: 0; }
+      .hero-aside { display: grid; grid-template-columns: repeat(2, 1fr); padding: 0; border-left: 0; border-right: 0; }
       .aside-label { grid-column: 1 / -1; }
       .fact { padding-right: 20px; }
       .expertise-grid { grid-template-columns: repeat(2, 1fr); }
       .project { grid-template-columns: 70px 1fr; }
-      .project-result { grid-column: 2; padding: 18px 0 0; border: 0; border-top: 1px solid var(--line); }
+      .project-result { grid-column: 2; padding: 18px 0 0 !important; border: 0 !important; border-top: 1px solid var(--line) !important; }
     }
 
     @media (max-width: 700px) {
       .container { width: min(100% - 32px, 1120px); }
-      .nav { min-height: 68px; }
+      .nav { min-height: 68px; flex-wrap: wrap; }
       .menu-button { display: block; }
       .nav-links { position: absolute; top: 68px; left: 0; right: 0; display: none; flex-direction: column; align-items: flex-start; gap: 0; padding: 12px 16px 22px; background: var(--paper); border-bottom: 1px solid var(--line); }
       .nav-links.open { display: flex; }
@@ -146,7 +153,7 @@
       .section-head { margin-bottom: 38px; }
       .expertise-grid, .credentials { grid-template-columns: 1fr; }
       .expertise { min-height: auto; }
-      .credential:nth-child(odd), .credential:nth-child(even) { padding: 25px 0; border-right: 0; }
+      .credential:nth-child(odd), .credential:nth-child(even) { padding: 25px 0 !important; border-right: 0 !important; border-left: 0 !important; }
       .project { grid-template-columns: 1fr; padding: 26px; gap: 14px; }
       .project-no { font-size: 1.4rem; }
       .project-result { grid-column: 1; }
@@ -155,7 +162,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { animation: none !important; transition: none !important; }
+      *, *::before, *::as { animation: none !important; transition: none !important; }
       .reveal { opacity: 1; transform: none; }
     }
   </style>
@@ -165,10 +172,13 @@
 
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home">Abdulrahman A.<small>Data & AI Specialist</small></a>
-      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
-      <div class="nav-links" id="navLinks">
-        <a href="#expertise">Expertise</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a>
+      <a class="brand" href="#home"><span data-ar="عبد الرحمن الرحيلي">Abdulrahman A.</span><small data-ar="أخصائي بيانات وذكاء اصطناعي">Data & AI Specialist</small></a>
+      <div class="nav-right">
+        <div class="nav-links" id="navLinks">
+          <a href="#expertise" data-ar="الخبرات">Expertise</a><a href="#projects" data-ar="المشاريع">Projects</a><a href="#experience" data-ar="الخبرة العملية">Experience</a><a href="#credentials" data-ar="الشهادات">Credentials</a><a href="#contact" data-ar="تواصل">Contact</a>
+        </div>
+        <button class="lang-toggle" id="langToggle" type="button">العربية</button>
+        <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks" data-ar="القائمة">Menu</button>
       </div>
     </nav>
   </header>
@@ -177,88 +187,103 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Based in Riyadh, Saudi Arabia</div>
-          <h1>Abdulrahman <span>Alrehaili.</span></h1>
-          <p class="hero-summary">Data and AI specialist building practical solutions across generative AI, machine learning, natural language processing, and business intelligence—turning complex requirements and data into systems people can use.</p>
+          <div class="eyebrow" data-ar="مقيم في الرياض، المملكة العربية السعودية">Based in Riyadh, Saudi Arabia</div>
+          <h1><span data-ar="عبد الرحمن">Abdulrahman</span> <span data-ar="الرحيلي.">Alrehaili.</span></h1>
+          <p class="hero-summary" data-ar="خريج علوم حاسب وأخصائي ذكاء اصطناعي، أعمل على بناء تطبيقات تعلم الآلة، أنظمة RAG، والتطبيقات المدعومة بالنماذج اللغوية الكبيرة (LLMs). أتمتع بمهارات عالية في Python، SQL، تجهيز البيانات، التصنيف، الاسترجاع الدلالي، وتقييم النماذج—مع خبرة عملية في حلول الذكاء الاصطناعي للغة العربية وأنظمة الاسترجاع للمؤسسات، وتركيز متزايد على كشف الاحتيال، مكافحة غسيل الأموال (AML)، اعرف عميلك (KYC)، فحص العقوبات، وتحليل المخاطر.">Computer Science graduate and AI Specialist building machine learning, RAG, and LLM-powered applications. Skilled in Python, SQL, data preparation, classification, semantic retrieval, and model evaluation — with hands-on experience in Arabic AI solutions and enterprise retrieval systems, and a growing focus on fraud detection, AML, KYC, sanctions screening, and risk analysis.</p>
           <div class="actions">
-            <a class="button primary" href="https://drive.google.com/drive/folders/1hTdz0FEJHVpN3A8CY2LsBhOjxFmP4wtv?usp=drive_link" target="_blank" rel="noopener">View résumé <span aria-hidden="true">↗</span></a>
-            <a class="button" href="#projects">Selected work</a>
+            <a class="button primary" href="https://drive.google.com/drive/folders/1hTdz0FEJHVpN3A8CY2LsBhOjxFmP4wtv?usp=drive_link" target="_blank" rel="noopener"><span data-ar="استعراض السيرة الذاتية">View résumé</span> <span aria-hidden="true">↗</span></a>
+            <a class="button" href="#projects" data-ar="أبرز الأعمال">Selected work</a>
           </div>
         </div>
         <aside class="hero-aside" aria-label="Professional highlights">
-          <div class="aside-label">Selected highlights</div>
-          <div class="fact"><strong>83.6%</strong><span>Arabic NLP classification accuracy</span></div>
-          <div class="fact"><strong>94%</strong><span>ROC-AUC on predictive modelling</span></div>
-          <div class="fact"><strong>5,000+</strong><span>Records analysed for BI initiatives</span></div>
-          <div class="fact"><strong>Data+</strong><span>CompTIA certified professional</span></div>
+          <div class="aside-label" data-ar="إنجازات رئيسية مختارة">Selected highlights</div>
+          <div class="fact"><strong>83.6%</strong><span data-ar="دقة تصنيف معالجة اللغة العربية">Arabic NLP classification accuracy</span></div>
+          <div class="fact"><strong>700+</strong><span data-ar="قطعة معرفية عربية تم استرجاعها، ارتفاعاً من 37">Arabic knowledge chunks retrieved, up from 37</span></div>
+          <div class="fact"><strong>94%</strong><span data-ar="مقياس ROC-AUC للنمذجة التنبؤية">ROC-AUC on predictive modelling</span></div>
+          <div class="fact"><strong>Data+</strong><span data-ar="شهادة معتمدة من CompTIA">CompTIA certified professional</span></div>
         </aside>
       </div>
     </section>
 
     <section class="tinted" id="expertise">
       <div class="container">
-        <div class="section-head reveal"><div class="section-index">01 / Expertise</div><div><h2 class="section-title">A practical blend of data, AI, and delivery.</h2><p class="section-intro">From understanding a business problem to designing, testing, and presenting a working solution.</p></div></div>
+        <div class="section-head reveal"><div class="section-index" data-ar="01 / الخبرات والمهارات">01 / Expertise</div><div><h2 class="section-title" data-ar="مزيج عملي بين البيانات، الذكاء الاصطناعي، والتنفيذ.">A practical blend of data, AI, and delivery.</h2><p class="section-intro" data-ar="من فهم المشكلة التجارية إلى تصميم الحل، اختباره، وتقديمه بشكل عملي متكامل.">From understanding a business problem to designing, testing, and presenting a working solution.</p></div></div>
         <div class="expertise-grid reveal">
-          <article class="expertise"><span class="expertise-number">01</span><h3>Generative AI</h3><p>Designing agentic workflows, RAG systems, prompt strategies, and reliable AI integrations.</p><div class="tags"><span class="tag">RAG</span><span class="tag">LLM Agents</span><span class="tag">LangGraph</span><span class="tag">n8n</span></div></article>
-          <article class="expertise"><span class="expertise-number">02</span><h3>Machine Learning</h3><p>Building and evaluating predictive models with careful feature engineering and experimentation.</p><div class="tags"><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">TensorFlow</span></div></article>
-          <article class="expertise"><span class="expertise-number">03</span><h3>Natural Language</h3><p>Developing text classification and semantic retrieval systems with a focus on Arabic content.</p><div class="tags"><span class="tag">Arabic NLP</span><span class="tag">Embeddings</span><span class="tag">Transformers</span></div></article>
-          <article class="expertise"><span class="expertise-number">04</span><h3>Data & BI</h3><p>Cleaning data, defining KPIs, and creating clear reports that support business decisions.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Excel</span><span class="tag">Python</span></div></article>
-          <article class="expertise"><span class="expertise-number">05</span><h3>Solution Design</h3><p>Translating stakeholder needs into requirements, process flows, prototypes, and technical solutions.</p><div class="tags"><span class="tag">BRD</span><span class="tag">SRS</span><span class="tag">Process Design</span></div></article>
-          <article class="expertise"><span class="expertise-number">06</span><h3>Development</h3><p>Delivering end-to-end prototypes and applications with practical deployment foundations.</p><div class="tags"><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">Docker</span><span class="tag">Git</span></div></article>
+          <article class="expertise"><span class="expertise-number">01</span><h3 data-ar="الذكاء الاصطناعي التوليدي">Generative AI</h3><p data-ar="تصميم مسارات العمل الذكية (Agentic Workflows)، أنظمة RAG، استراتيجيات الهندسة الأوامرية، والتكامل الموثوق للذكاء الاصطناعي.">Designing agentic workflows, RAG systems, prompt strategies, and reliable AI integrations.</p><div class="tags"><span class="tag">RAG</span><span class="tag">LLM Agents</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Hugging Face</span><span class="tag">n8n</span></div></article>
+          <article class="expertise"><span class="expertise-number">02</span><h3 data-ar="تعلم الآلة">Machine Learning</h3><p data-ar="بناء وتقييم النماذج التنبؤية مع هندسة الميزات والتجارب الدقيقة.">Building and evaluating predictive models with careful feature engineering and experimentation.</p><div class="tags"><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">TensorFlow</span><span class="tag">Deep Learning</span></div></article>
+          <article class="expertise"><span class="expertise-number">03</span><h3 data-ar="معالجة اللغات الطبيعية">Natural Language</h3><p data-ar="تطوير أنظمة تصنيف النصوص واسترجاعها دلالياً مع التركيز على المحتوى العربي.">Developing text classification and semantic retrieval systems with a focus on Arabic content.</p><div class="tags"><span class="tag">Arabic NLP</span><span class="tag">Embeddings</span><span class="tag">Semantic Search</span></div></article>
+          <article class="expertise"><span class="expertise-number">04</span><h3 data-ar="البيانات وذكاء الأعمال">Data & BI</h3><p data-ar="تنظيف البيانات، تحديد مؤشرات الأداء الرئيسية، وإنشاء تقارير واضحة تدعم اتخاذ القرار.">Cleaning data, defining KPIs, and creating clear reports that support business decisions.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">Python</span></div></article>
+          <article class="expertise"><span class="expertise-number">05</span><h3 data-ar="تصميم الحلول">Solution Design</h3><p data-ar="ترجمة احتياجات أصحاب المصلحة إلى متطلبات، تدفقات إجراءات، نماذج أولية، وحلول تقنية.">Translating stakeholder needs into requirements, process flows, prototypes, and technical solutions.</p><div class="tags"><span class="tag">BRD</span><span class="tag">SRS</span><span class="tag">Process Design</span></div></article>
+          <article class="expertise"><span class="expertise-number">06</span><h3 data-ar="التطوير البرمجي">Development</h3><p data-ar="تقديم نماذج أولية وتطبيقات متكاملة مع أساسيات نشر وتشغيل عملية.">Delivering end-to-end prototypes and applications with practical deployment foundations.</p><div class="tags"><span class="tag">FastAPI</span><span class="tag">Pydantic</span><span class="tag">Streamlit</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">MLOps</span></div></article>
         </div>
       </div>
     </section>
 
     <section id="projects">
       <div class="container">
-        <div class="section-head reveal"><div class="section-index">02 / Selected work</div><div><h2 class="section-title">Projects grounded in real problems.</h2><p class="section-intro">A selection of AI and data projects spanning language, prediction, and decision support.</p></div></div>
+        <div class="section-head reveal"><div class="section-index" data-ar="02 / المشاريع">02 / Selected work</div><div><h2 class="section-title" data-ar="مشاريع مستندة إلى حل مشكلات واقعية.">Projects grounded in real problems.</h2><p class="section-intro" data-ar="سلسلة من مشاريع الذكاء الاصطناعي والبيانات تغطي معالجة اللغة، التنبؤ، ودعم اتخاذ القرار.">A selection of AI and data projects spanning language, prediction, and decision support.</p></div></div>
         <div class="projects">
-          <a class="project reveal" href="https://github.com/D7nez/arabic-sentiment-analysis" target="_blank" rel="noopener"><div class="project-no">01</div><div><h3>Arabic Sentiment Analysis</h3><p>End-to-end Arabic text classification using BiLSTM with self-attention, delivered through a Django web interface.</p><div class="tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Arabic NLP</span><span class="tag">Django</span></div></div><div class="project-result"><strong>83.6%</strong><span>Model accuracy</span></div></a>
-          <a class="project reveal" href="https://github.com/D7nez/steam-addiction-detector" target="_blank" rel="noopener"><div class="project-no">02</div><div><h3>Game Addictiveness Prediction</h3><p>Predictive modelling and behavioural analysis across Steam data, with recommendations for lower-risk alternatives.</p><div class="tags"><span class="tag">Random Forest</span><span class="tag">XGBoost</span><span class="tag">PCA</span><span class="tag">Streamlit</span></div></div><div class="project-result"><strong>94%</strong><span>ROC-AUC score</span></div></a>
-          <a class="project reveal" href="https://github.com/D7nez/masar-brd-copilot" target="_blank" rel="noopener"><div class="project-no">03</div><div><h3>MASAR BRD Copilot</h3><p>A multi-agent AI system developed through SDAIA's Building Agentic AI Systems program to generate structured business requirements, identify risks, and maintain requirements traceability with human review.</p><div class="tags"><span class="tag">Agentic AI</span><span class="tag">LangGraph</span><span class="tag">RAG</span><span class="tag">Multi-Agent Systems</span></div></div><div class="project-result"><strong>6</strong><span>Functional requirements</span></div></a>
-          <a class="project reveal" href="https://github.com/D7nez" target="_blank" rel="noopener"><div class="project-no">04</div><div><h3>Enterprise Arabic RAG</h3><p>Semantic retrieval system for Arabic institutional knowledge, using vector search, metadata-aware retrieval, and controlled generation.</p><div class="tags"><span class="tag">FAISS</span><span class="tag">Embeddings</span><span class="tag">RAG</span><span class="tag">LLMs</span></div></div><div class="project-result"><strong>715</strong><span>Knowledge chunks</span></div></a>
+          <a class="project reveal" href="https://github.com/D7nez/arabic-sentiment-analysis" target="_blank" rel="noopener"><div class="project-no">01</div><div><h3 data-ar="تحليل المشاعر للنصوص العربية">Arabic Sentiment Analysis</h3><p data-ar="تصنيف نصوص عربية ثلاثي الفئات باستخدام شبكة BiLSTM مع آلية الانتباه الذاتي، بمعالجة أكثر من 5,000 جملة، وتقديمه عبر واجهة Django وتحزيمه بواسطة Docker.">Three-class Arabic sentiment classifier using a BiLSTM network with self-attention, processing 5,000+ sentences and delivered through a Django web interface, containerized with Docker.</p><div class="tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Arabic NLP</span><span class="tag">Django</span></div></div><div class="project-result"><strong>83.6%</strong><span data-ar="دقة النموذج">Model accuracy</span></div></a>
+          <a class="project reveal" href="https://github.com/D7nez/steam-addiction-detector" target="_blank" rel="noopener"><div class="project-no">02</div><div><h3 data-ar="التنبؤ بإدمان الألعاب الإلكترونية">Game Addictiveness Prediction</h3><p data-ar="نمذجة تنبؤية وتحليل سلوكي لبيانات منصة Steam، مع تقديم توصيات لبدائل أقل خطورة.">Predictive modelling and behavioural analysis across Steam data, with recommendations for lower-risk alternatives.</p><div class="tags"><span class="tag">Random Forest</span><span class="tag">XGBoost</span><span class="tag">PCA</span><span class="tag">Streamlit</span></div></div><div class="project-result"><strong>94%</strong><span data-ar="درجة ROC-AUC">ROC-AUC score</span></div></a>
+          <a class="project reveal" href="https://github.com/D7nez/masar-brd-copilot" target="_blank" rel="noopener"><div class="project-no">03</div><div><h3 data-ar="مساعد وثائق متطلبات الأعمال (MASAR)">MASAR BRD Copilot</h3><p data-ar="نظام ذكاء اصطناعي متعدد الوكلاء مبني على LangGraph يحوّل الطلبات غير المهيكلة إلى متطلبات أعمال مهيكلة، وينسّق وكلاء المتطلبات وتحليل المخاطر باستخدام RAG، المخرجات المهيكلة، التحقق، اكتشاف الفجوات، التتبع، ومسار التقييم والتحسين.">A LangGraph-based multi-agent system that converts unstructured requests into structured business requirements, coordinating requirements and risk-analysis agents with RAG, structured outputs, validation, gap detection, traceability, and an evaluator-optimizer workflow.</p><div class="tags"><span class="tag">Agentic AI</span><span class="tag">LangGraph</span><span class="tag">RAG</span><span class="tag">Multi-Agent Systems</span></div></div><div class="project-result"><strong>6</strong><span data-ar="متطلبات وظيفية">Functional requirements</span></div></a>
+          <a class="project reveal" href="https://github.com/D7nez" target="_blank" rel="noopener"><div class="project-no">04</div><div><h3 data-ar="نظام RAG للمؤسسات باللغة العربية">Enterprise Arabic RAG</h3><p data-ar="نظام استرجاع دلالي للمعرفة المؤسسية العربية، مبني على تضمينات متعددة اللغات وFAISS والتوليد المعتمد على النماذج اللغوية الكبيرة. تم توسيع قاعدة المعرفة من 37 إلى أكثر من 700 قطعة معرفية، مما حسّن تغطية الاسترجاع وتمثيل المستندات.">Semantic retrieval system for Arabic institutional knowledge, built on multilingual embeddings, FAISS, and LLM-based generation. Expanded and restructured the knowledge base from 37 to 700+ structured chunks, improving retrieval coverage and document representation.</p><div class="tags"><span class="tag">FAISS</span><span class="tag">Embeddings</span><span class="tag">RAG</span><span class="tag">LLMs</span></div></div><div class="project-result"><strong>700+</strong><span data-ar="قطعة معرفية">Knowledge chunks</span></div></a>
+          <a class="project reveal" href="https://github.com/D7nez" target="_blank" rel="noopener"><div class="project-no">05</div><div><h3 data-ar="مسار معالجة الأخبار الذكي">News Agent Pipeline</h3><p data-ar="مسار عمل متكامل لمعالجة المحتوى بالذكاء الاصطناعي، مع كشف التكرار الدلالي، التخزين في PostgreSQL/pgvector، التقييم التلقائي للجودة، وعناصر تحكم للاعتماد البشري.">An end-to-end AI content processing workflow with semantic duplicate detection, PostgreSQL/pgvector storage, automated quality evaluation, and human approval controls.</p><div class="tags"><span class="tag">pgvector</span><span class="tag">PostgreSQL</span><span class="tag">LLM Evaluation</span><span class="tag">Automation</span></div></div><div class="project-result"><strong data-ar="تقييم تلقائي">Auto QA</strong><span data-ar="تقييم الجودة">Quality evaluation</span></div></a>
         </div>
       </div>
     </section>
 
     <section class="tinted" id="experience">
       <div class="container">
-        <div class="section-head reveal"><div class="section-index">03 / Experience</div><div><h2 class="section-title">Experience shaped by building.</h2><p class="section-intro">Professional, training, and community work focused on useful technology and measurable outcomes.</p></div></div>
+        <div class="section-head reveal"><div class="section-index" data-ar="03 / الخبرة العملية">03 / Experience</div><div><h2 class="section-title" data-ar="خبرات صقلها التطبيق المباشر.">Experience shaped by building.</h2><p class="section-intro" data-ar="عمل مهني وتدريبي ومجتمعي يركز على تقنيات نافعة ونتائج قابلة للقياس.">Professional, training, and community work focused on useful technology and measurable outcomes.</p></div></div>
         <div class="timeline">
-          <article class="role reveal"><div class="role-meta"><time>May 2026 — Present</time><strong>Vista Solutions & Consultancy</strong>Riyadh, Saudi Arabia</div><div><h3>Artificial Intelligence Specialist</h3><ul><li>Design and prototype AI solutions that translate business requirements into practical workflows and applications.</li><li>Build Arabic retrieval and generative AI systems using semantic search, structured prompts, and evaluation techniques.</li><li>Develop automation and agent workflows that connect AI capabilities with business processes and approval steps.</li></ul></div></article>
-          <article class="role reveal"><div class="role-meta"><time>Feb 2026 — Apr 2026</time><strong>Jameel Charity Association</strong>Volunteer engagement</div><div><h3>Data Analyst</h3><ul><li>Analysed more than 5,000 records using Power BI, DAX, and Power Query to identify operational trends.</li><li>Built interactive dashboards and KPI views to support data-informed decisions across charitable programmes.</li><li>Completed 107.5 volunteer hours across data cleaning, analysis, reporting, and presentation.</li></ul></div></article>
-          <article class="role reveal"><div class="role-meta"><time>Aug 2025 — Nov 2025</time><strong>Saudi Digital Academy & Le Wagon</strong>Intensive bootcamp</div><div><h3>Data Science & AI Trainee</h3><ul><li>Built machine-learning projects covering data preparation, feature engineering, modelling, and deployment.</li><li>Worked with Python, SQL, Scikit-learn, TensorFlow, FastAPI, Streamlit, and cloud deployment foundations.</li></ul></div></article>
+          <article class="role reveal"><div class="role-meta"><time data-ar="مايو 2026 — الحالي">May 2026 — Present</time><strong data-ar="فيستا للحلول والاستشارات">Vista Solutions & Consultancy</strong><span data-ar="الرياض، المملكة العربية السعودية">Riyadh, Saudi Arabia</span></div><div><h3 data-ar="أخصائي ذكاء اصطناعي">Artificial Intelligence Specialist</h3><ul>
+            <li data-ar="تطوير تطبيقات الذكاء الاصطناعي للمؤسسات باستخدام Python، النماذج اللغوية الكبيرة، أنظمة الاسترجاع، ومسارات البيانات المهيكلة.">Develop enterprise AI applications using Python, LLMs, retrieval systems, and structured data pipelines.</li>
+            <li data-ar="بناء نظام RAG عربي باستخدام تضمينات متعددة اللغات وFAISS والبحث الدلالي والتوليد المعتمد على النماذج اللغوية الكبيرة.">Built an Arabic RAG system using multilingual embeddings, FAISS, semantic search, and LLM-based generation.</li>
+            <li data-ar="توسيع وإعادة هيكلة قاعدة المعرفة من 37 إلى أكثر من 700 قطعة معرفية، مما حسّن تغطية الاسترجاع وتمثيل المستندات.">Expanded and restructured the knowledge base from 37 to 700+ structured chunks, improving retrieval coverage and document representation.</li>
+            <li data-ar="تطوير مسارات عمل للتقييم تقيس صلة الاسترجاع، الموثوقية، جودة الاستجابة، والاتساق.">Developed evaluation workflows measuring retrieval relevance, groundedness, response quality, and consistency.</li>
+            <li data-ar="إعداد المستندات العربية للبحث وبناء مسارات لاستخراج المعلومات، التحقق، تحليل المتطلبات، وأتمتة المستندات.">Prepared Arabic documents for search and built workflows for information extraction, validation, requirements analysis, and document automation.</li>
+          </ul></div></article>
+          <article class="role reveal"><div class="role-meta"><time data-ar="فبراير 2026 — أبريل 2026">Feb 2026 — Apr 2026</time><strong data-ar="جمعية جميل الخيرية">Jameel Charity Association</strong><span data-ar="عمل تطوعي">Volunteer engagement</span></div><div><h3 data-ar="محلل بيانات">Data Analyst</h3><ul>
+            <li data-ar="تحليل أكثر من 5,000 سجل باستخدام Power BI وDAX وPower Query لتحديد الاتجاهات التشغيلية.">Analysed more than 5,000 records using Power BI, DAX, and Power Query to identify operational trends.</li>
+            <li data-ar="إنشاء لوحات قيادة تفاعلية ومؤشرات أداء تدعم القرارات المبنية على البيانات للبرامج الخيرية.">Built interactive dashboards and KPI views to support data-informed decisions across charitable programmes.</li>
+            <li data-ar="إتمام 107.5 ساعة تطوعية شملت تنظيف البيانات والتحليل وإعداد التقارير والعرض.">Completed 107.5 volunteer hours across data cleaning, analysis, reporting, and presentation.</li>
+          </ul></div></article>
+          <article class="role reveal"><div class="role-meta"><time data-ar="أغسطس 2025 — نوفمبر 2025">Aug 2025 — Nov 2025</time><strong data-ar="الأكاديمية السعودية الرقمية &amp; Le Wagon">Saudi Digital Academy & Le Wagon</strong><span data-ar="معسكر مكثف">Intensive bootcamp</span></div><div><h3 data-ar="متدرب علم البيانات والذكاء الاصطناعي">Data Science & AI Trainee</h3><ul>
+            <li data-ar="إتمام مشاريع متكاملة باستخدام Python وSQL شملت استخراج البيانات، التنظيف، التحليل الاستكشافي، التصور، هندسة الميزات، التدريب، التقييم، والنشر.">Completed end-to-end projects using Python and SQL, covering data extraction, cleaning, exploratory analysis, visualization, feature engineering, model training, evaluation, and deployment.</li>
+            <li data-ar="تطوير نماذج تصنيف وتنبؤ باستخدام Python وPandas وScikit-learn وTensorFlow ومعماريات الشبكات العصبية.">Developed classification and predictive models using Python, Pandas, Scikit-learn, TensorFlow, and neural network architectures.</li>
+            <li data-ar="بناء ونشر تطبيقات بيانات وواجهات ML API باستخدام Streamlit وFastAPI ومسارات MLOps السحابية.">Built and deployed data applications and ML APIs using Streamlit, FastAPI, and cloud-based MLOps workflows.</li>
+          </ul></div></article>
         </div>
       </div>
     </section>
 
     <section id="credentials">
       <div class="container">
-        <div class="section-head reveal"><div class="section-index">04 / Credentials</div><div><h2 class="section-title">Education and professional development.</h2></div></div>
+        <div class="section-head reveal"><div class="section-index" data-ar="04 / المؤهلات والشهادات">04 / Credentials</div><div><h2 class="section-title" data-ar="التعليم والتطوير المهني.">Education and professional development.</h2></div></div>
         <div class="credentials reveal">
-          <div class="credential"><time>2025</time><div><h3>B.Sc. in Computer Science</h3><p>Taibah University</p></div></div>
-          <a class="credential" href="https://athkax.sdaia.gov.sa/certificate-verification?type=Event&amp;id=288&amp;certificate=20975&amp;learner=a.alrehaili86@gmail.com" target="_blank" rel="noopener"><time>2026</time><div><h3>Building Agentic AI Systems</h3><p>SDAIA · Credential ID 20975</p></div></a>
-          <a class="credential" href="https://www.credly.com/badges/cb6206ac-de88-4231-8d5d-109da41ef57f/linked_in_profile" target="_blank" rel="noopener"><time>2026</time><div><h3>CompTIA Data+ ce</h3><p>CompTIA · Valid through January 2029</p></div></a>
-          <div class="credential"><time>2026</time><div><h3>Volunteering Certificate — 107.5 Hours</h3><p>National Center for Nonprofit Sector Development</p></div></div>
-          <div class="credential"><time>2026</time><div><h3>Data Analysis and Visualization Using Excel</h3><p>Tuwaiq Academy</p></div></div>
-          <a class="credential" href="https://www.credly.com/badges/0e05fdec-bc75-43ae-8741-38426b45daf0/linked_in_profile" target="_blank" rel="noopener"><time>2024</time><div><h3>Data Fundamentals</h3><p>IBM · Verified credential</p></div></a>
-          <a class="credential" href="https://drive.google.com/drive/folders/1yX3MU1ZZwLGP0sAnxISNv99dJWQKQCXb?usp=drive_link" target="_blank" rel="noopener"><time>2025</time><div><h3>Data Science &amp; AI Bootcamp</h3><p>Saudi Digital Academy &amp; Le Wagon</p></div></a>
+          <div class="credential"><time>2025</time><div><h3 data-ar="بكالوريوس في علوم الحاسب">B.Sc. in Computer Science</h3><p data-ar="جامعة طيبة · مايو 2025">Taibah University · May 2025</p></div></div>
+          <a class="credential" href="https://athkax.sdaia.gov.sa/certificate-verification?type=Event&amp;id=288&amp;certificate=20975&amp;learner=a.alrehaili86@gmail.com" target="_blank" rel="noopener"><time>2026</time><div><h3 data-ar="بناء أنظمة الذكاء الاصطناعي المستقلة">Building Agentic AI Systems</h3><p data-ar="أكاديمية سدايا (SDAIA) · سبتمبر 2026 · رقم الاعتماد: 20975">SDAIA Academy · Sep 2026 · Credential ID 20975</p></div></a>
+          <a class="credential" href="https://www.credly.com/badges/cb6206ac-de88-4231-8d5d-109da41ef57f/linked_in_profile" target="_blank" rel="noopener"><time>2026</time><div><h3 data-ar="شهادة CompTIA Data+ (DA0-001)">CompTIA Data+ (DA0-001)</h3><p data-ar="CompTIA · يناير 2026 · صالحة حتى يناير 2029">CompTIA · Jan 2026 · Valid through January 2029</p></div></a>
+          <div class="credential"><time>2026</time><div><h3 data-ar="شهادة تطوع (107.5 ساعة)">Volunteering Certificate — 107.5 Hours</h3><p data-ar="المركز الوطني لتنمية القطاع غير الربحي">National Center for Nonprofit Sector Development</p></div></div>
+          <div class="credential"><time>2026</time><div><h3 data-ar="تحليل البيانات وتصورها باستخدام Excel">Data Analysis and Visualization Using Excel</h3><p data-ar="أكاديمية طويق">Tuwaiq Academy</p></div></div>
+          <a class="credential" href="https://www.credly.com/badges/0e05fdec-bc75-43ae-8741-38426b45daf0/linked_in_profile" target="_blank" rel="noopener"><time>2024</time><div><h3 data-ar="أساسيات البيانات">Data Fundamentals</h3><p data-ar="IBM · شهادة معتمدة">IBM · Verified credential</p></div></a>
+          <a class="credential" href="https://drive.google.com/drive/folders/1yX3MU1ZZwLGP0sAnxISNv99dJWQKQCXb?usp=drive_link" target="_blank" rel="noopener"><time>2025</time><div><h3 data-ar="معسكر علم البيانات والذكاء الاصطناعي">Data Science &amp; AI Bootcamp</h3><p data-ar="الأكاديمية السعودية الرقمية &amp; Le Wagon · نوفمبر 2025">Saudi Digital Academy &amp; Le Wagon · Nov 2025</p></div></a>
         </div>
       </div>
     </section>
 
     <section class="contact tinted" id="contact">
       <div class="container reveal">
-        <div class="eyebrow">Let’s connect</div>
-        <h2>Have a role, project, or idea <em>worth building?</em></h2>
-        <p>I’m interested in opportunities where data and AI can solve a meaningful business problem with clarity and measurable value.</p>
-        <a class="button primary" href="mailto:a.alrehaili86@gmail.com">Start a conversation</a>
+        <div class="eyebrow" data-ar="لنبني شيئاً معاً">Let's connect</div>
+        <h2><span data-ar="هل لديك فرصة عمل، مشروع، أو فكرة">Have a role, project, or idea</span> <em data-ar="تستحق البناء؟">worth building?</em></h2>
+        <p data-ar="أنا مهتم بالفرص التي يمكن للبيانات والذكاء الاصطناعي من خلالها حل مشكلات الأعمال الحقيقية بوضوح وقيمة ملموسة — ولا سيما في مجالات كشف الاحتيال، مكافحة غسيل الأموال (AML)، اعرف عميلك (KYC)، فحص العقوبات، وتحليل المخاطر.">I'm interested in opportunities where data and AI can solve a meaningful business problem with clarity and measurable value — particularly in fraud detection, AML, KYC, sanctions screening, and risk analysis.</p>
+        <a class="button primary" href="mailto:a.alrehaili86@gmail.com" data-ar="ابدأ محادثة">Start a conversation</a>
         <div class="contact-list"><a href="mailto:a.alrehaili86@gmail.com">a.alrehaili86@gmail.com</a><a href="https://www.linkedin.com/in/abdulrahman-alrehaili-saudi/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/D7nez" target="_blank" rel="noopener">GitHub</a><a href="tel:+966566276214">+966 56 627 6214</a></div>
       </div>
     </section>
   </main>
 
-  <footer><div class="container footer-inner"><span>© 2026 Abdulrahman Alrehaili</span><span>Data & AI Specialist · Riyadh, Saudi Arabia</span></div></footer>
+  <footer><div class="container footer-inner"><span data-ar="© 2026 عبد الرحمن الرحيلي">© 2026 Abdulrahman Alrehaili</span><span data-ar="أخصائي بيانات وذكاء اصطناعي · الرياض، المملكة العربية السعودية">Data & AI Specialist · Riyadh, Saudi Arabia</span></div></footer>
 
   <script>
     const progress = document.getElementById('progress');
@@ -287,6 +312,33 @@
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
     window.addEventListener('scroll', updateProgress, { passive: true });
     updateProgress();
+
+    (function () {
+      const STORAGE_KEY = 'site-lang';
+      const html = document.documentElement;
+      const toggleBtn = document.getElementById('langToggle');
+      const nodes = Array.from(document.querySelectorAll('[data-ar]'));
+      nodes.forEach(el => { el.dataset.en = el.textContent; });
+
+      function applyLang(lang) {
+        nodes.forEach(el => { el.textContent = lang === 'ar' ? el.dataset.ar : el.dataset.en; });
+        html.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
+        html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        if (toggleBtn) toggleBtn.textContent = lang === 'ar' ? 'English' : 'العربية';
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+      }
+
+      let saved = 'en';
+      try { saved = localStorage.getItem(STORAGE_KEY) || 'en'; } catch (e) {}
+      applyLang(saved);
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          const current = html.getAttribute('dir') === 'rtl' ? 'ar' : 'en';
+          applyLang(current === 'ar' ? 'en' : 'ar');
+        });
+      }
+    })();
   </script>
 </body>
 </html>
